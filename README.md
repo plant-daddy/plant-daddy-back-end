@@ -22,6 +22,7 @@ Tendo isso instalado, basta rodar os comandos:
 - Express
 - TypeORM
 - PostgreSQL
+- Jest
 
 ## Padrões de commit
 Utilizando [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
