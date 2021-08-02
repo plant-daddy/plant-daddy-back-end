@@ -21,6 +21,7 @@
         "prettier"
     ],
     "rules": {
+        "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
         "prettier/prettier": "error",
         "camelcase": "off",
         "import/no-unresolved": "error",
