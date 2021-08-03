@@ -11,6 +11,7 @@ const createUserValidation = {
     username: Joi.string().required(),
     email: Joi.string().email().required(),
     password: Joi.string().required(),
+    confirmPassword: Joi.valid(Joi.ref('password')).required(),
   }),
 };
 
