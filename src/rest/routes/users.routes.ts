@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { Joi, validate } from 'express-validation';
 
 import { CreateUserHandler } from '../handlers/users/CreateUserHandler';
+import { DeleteUserHandler } from '../handlers/users/DeleteUserHandler';
 import { ShowUserHandler } from '../handlers/users/ShowUserHandler';
 import { UpdateUserHandler } from '../handlers/users/UpdateUserHandler';
 import { authenticateUser } from '../middlewares/authenticateUser';
@@ -31,10 +32,22 @@ const updateUserValidation = {
 
 const showUserHandler = new ShowUserHandler();
 
+const deleteUserHandler = new DeleteUserHandler();
+const deleteUserValidation = {
+  body: Joi.object({
+    confirm: Joi.boolean().valid(true).required(),
+  }),
+};
+
 usersRoutes.post('/', validate(createUserValidation), createUserHandler.handle);
 
 usersRoutes.use(authenticateUser);
 usersRoutes.put('/', validate(updateUserValidation), updateUserHandler.handle);
 usersRoutes.get('/', showUserHandler.handle);
+usersRoutes.delete(
+  '/',
+  validate(deleteUserValidation),
+  deleteUserHandler.handle
+);
 
 export { usersRoutes };
