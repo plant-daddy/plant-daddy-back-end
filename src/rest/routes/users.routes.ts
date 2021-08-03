@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { Joi, validate } from 'express-validation';
 
 import { CreateUserHandler } from '../handlers/users/CreateUserHandler';
+import { ShowUserHandler } from '../handlers/users/ShowUserHandler';
 import { UpdateUserHandler } from '../handlers/users/UpdateUserHandler';
 import { authenticateUser } from '../middlewares/authenticateUser';
 
@@ -28,9 +29,12 @@ const updateUserValidation = {
   }),
 };
 
+const showUserHandler = new ShowUserHandler();
+
 usersRoutes.post('/', validate(createUserValidation), createUserHandler.handle);
 
 usersRoutes.use(authenticateUser);
 usersRoutes.put('/', validate(updateUserValidation), updateUserHandler.handle);
+usersRoutes.get('/', showUserHandler.handle);
 
 export { usersRoutes };
