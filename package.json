@@ -20,7 +20,8 @@
   "scripts": {
     "postinstall": "husky install",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/rest/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
+    "seed:plants": "ts-node-dev src/database/seeds/plants.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
