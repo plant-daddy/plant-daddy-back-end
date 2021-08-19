@@ -11,7 +11,7 @@ class PlantRepository implements IPlantRepository {
   }
 
   async findAll(): Promise<Plant[]> {
-    const plants = await this.repository.find();
+    const plants = await this.repository.find({ relations: ['type', 'soils'] });
 
     return plants;
   }

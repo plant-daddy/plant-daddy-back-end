@@ -16,13 +16,15 @@ Tendo isso instalado, basta rodar os comandos:
 - Subir os containers docker (banco e api)
 `docker-compose up`
 
+- Criar as tabelas do banco e populá-las:
+`yarn typeorm migration:run && yarn seed:plants`
+
 ## Stack
 - Node.js
 - TypeScript
 - Express
 - TypeORM
 - PostgreSQL
-- Jest
 
 ## Padrões de commit
 Utilizando [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)

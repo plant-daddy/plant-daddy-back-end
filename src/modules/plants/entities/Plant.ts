@@ -23,7 +23,17 @@ class Plant {
   type: PlantType;
 
   @ManyToMany(() => Soil)
-  @JoinTable()
+  @JoinTable({
+    name: 'plants_soils',
+    joinColumn: {
+      name: 'plant_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'soil_id',
+      referencedColumnName: 'id',
+    },
+  })
   soils: Soil[];
 
   @Column()
@@ -39,7 +49,10 @@ class Plant {
   scientific_name: string;
 
   @Column()
-  temperature: number;
+  temperature_min: number;
+
+  @Column()
+  temperature_max: number;
 
   @Column()
   watering_frequency: number;
