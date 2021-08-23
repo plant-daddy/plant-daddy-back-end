@@ -8,7 +8,7 @@ import { usersRoutes } from './users.routes';
 const router = Router();
 
 router.use('/plants', plantsRoutes);
-router.use('/users/:user_id/plants', usersPlantsRoutes);
+router.use('/users/plants', usersPlantsRoutes);
 router.use('/users', usersRoutes);
 router.use(authenticateRoutes);
 
