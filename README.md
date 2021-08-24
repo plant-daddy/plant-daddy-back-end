@@ -10,13 +10,13 @@
 
 Tendo isso instalado, basta rodar os comandos:
 
-- Instalar as dependências
+1. Instalar as dependências
 `yarn install`
 
-- Subir os containers docker (banco e api)
+1. Subir os containers docker (banco e api)
 `docker-compose up`
 
-- Criar as tabelas do banco e populá-las:
+1. Criar as tabelas do banco e populá-las:
 `yarn typeorm migration:run && yarn seed:plants`
 
 ## Stack
