@@ -10,10 +10,10 @@
 
 Tendo isso instalado, basta rodar os comandos:
 
-1. Instalar as dependências
+1. Instalar as dependências:
 `yarn install`
 
-1. Subir os containers docker (banco e api)
+1. Subir os containers docker (banco e api):
 `docker-compose up`
 
 1. Criar as tabelas do banco e populá-las:
