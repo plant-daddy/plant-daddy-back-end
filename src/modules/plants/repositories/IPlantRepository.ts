@@ -1,7 +1,12 @@
 import { Plant } from '../entities/Plant';
 
-interface IPlantRepository {
-  findAll(): Promise<Plant[]>;
+interface IQueryDTO {
+  common_name?: string;
 }
 
-export { IPlantRepository };
+interface IPlantRepository {
+  findAll(): Promise<Plant[]>;
+  search(query: IQueryDTO): Promise<Plant[]>;
+}
+
+export { IPlantRepository, IQueryDTO };

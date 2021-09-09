@@ -3,6 +3,10 @@ import { inject, injectable } from 'tsyringe';
 import { Plant } from '../entities/Plant';
 import { IPlantRepository } from '../repositories/IPlantRepository';
 
+interface IRequest {
+  common_name?: string;
+}
+
 @injectable()
 class ListPlantsUseCase {
   constructor(
@@ -10,8 +14,8 @@ class ListPlantsUseCase {
     private plantRepository: IPlantRepository
   ) {}
 
-  async execute(): Promise<Plant[]> {
-    const plants = await this.plantRepository.findAll();
+  async execute({ common_name }: IRequest): Promise<Plant[]> {
+    const plants = await this.plantRepository.search({ common_name });
 
     return plants;
   }
